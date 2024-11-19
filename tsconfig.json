@@ -18,5 +18,7 @@
     "sourceMap": true,
     /* If your code doesn't run in the DOM: */
     "lib": ["es2022"]
-  }
+  },
+  /* If you're using Node.js: */
+  "extends": "@tsconfig/node22/tsconfig.json"
 }
