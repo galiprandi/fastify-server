@@ -1,6 +1,5 @@
 import Fastify from 'fastify'
 import { logger as loggerInstance } from '../logger/pino.js'
-import { timeStamp } from 'console'
 
 export const buildServer = async () => {
   const instance = Fastify({
