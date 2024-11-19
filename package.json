@@ -4,6 +4,10 @@
   "description": "A Modern Fastify Server",
   "main": "src/index.ts",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:galiprandi/fastify-server.git"
+  },
   "scripts": {
     "dev": "node --run dev:build & node --watch dist/index.js",
     "dev:build": "npm run build -- --watch --preserveWatchOutput",
