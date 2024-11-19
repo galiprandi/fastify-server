@@ -1,14 +1,6 @@
 import { pino } from 'pino'
+import { pinoOptions } from '../../settings/logger.settings.js'
 
-export const loggerOptions: Parameters<typeof pino>[0] = {
-  transport: {
-    target: 'pino-pretty',
-    options: {
-      colorize: true,
-    },
-  },
-}
-
-export const logger = pino(loggerOptions)
+export const logger = pino(pinoOptions)
 
 logger.info(`🧰 Initializing logger manager...`)
