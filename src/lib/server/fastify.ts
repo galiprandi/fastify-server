@@ -1,12 +1,13 @@
 import Fastify from 'fastify'
 import { logger as loggerInstance } from '../logger/pino.js'
+import { timeStamp } from 'console'
 
 export const buildServer = async () => {
   const instance = Fastify({
     loggerInstance,
   })
 
-  instance.get('/health', () => ({ status: 'ok' }))
+  instance.get('/health', () => ({ status: 'ok', timeStamp: new Date() }))
 
   const startServer = async ({ port }: StartServerProps) => {
     try {
