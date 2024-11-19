@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["fastify", "Fastify", "galiprandi", "postbuild"]
+  "cSpell.words": [
+    "autoload",
+    "blipp",
+    "fastify",
+    "Fastify",
+    "galiprandi",
+    "postbuild"
+  ]
 }
