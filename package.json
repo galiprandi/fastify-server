@@ -1,14 +1,15 @@
 {
-  "name": "fatify-server",
+  "name": "fastify-server",
   "version": "1.0.0",
-  "description": "A Mordern Fastify Server",
+  "description": "A Modern Fastify Server",
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "pnpm run \"/dev:/\"",
+    "dev": "node --run dev:build & node --watch dist/index.js",
     "dev:build": "npm run build -- --watch --preserveWatchOutput",
-    "dev:start": "npm run start -- --watch --enable-source-maps",
-    "start": "node dist/index.js",
+    "dev:start": "node --run -- --watch --enable-source-maps",
+    "postbuild": "cp  .env dist/.env",
+    "start": "node dist/index.js --env-file .env",
     "build": "tsc"
   },
   "keywords": [
@@ -25,6 +26,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "fastify": "^5.1.0",
     "pino": "^9.5.0",
     "pino-pretty": "^13.0.0"
   }
