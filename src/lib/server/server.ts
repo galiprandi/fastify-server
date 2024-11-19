@@ -2,28 +2,28 @@ import Fastify from 'fastify'
 import { logger as loggerInstance } from '../logger/pino.js'
 
 export const buildServer = async (opts = {}) => {
-  const instance = Fastify({
+  const server = Fastify({
     loggerInstance,
     ...opts,
   })
 
-  instance.get('/health', () => ({ status: 'ok', timeStamp: new Date() }))
+  server.get('/health', () => ({ status: 'ok', timeStamp: new Date() }))
 
   const startServer = async ({ port }: StartServerProps) => {
     try {
-      await instance.listen({
+      await server.listen({
         port,
         listenTextResolver(address) {
           return `🚀 Server health check available at: ${address}/health`
         },
       })
     } catch (err) {
-      instance.log.error(err)
+      server.log.error(err)
       process.exit(1)
     }
   }
 
-  return { server: instance, startServer }
+  return { server, startServer }
 }
 
 type StartServerProps = {
