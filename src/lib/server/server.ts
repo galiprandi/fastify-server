@@ -7,7 +7,14 @@ export const buildServer = async (opts = {}) => {
     ...opts,
   })
 
+  // Health check route
   server.get('/health', () => ({ status: 'ok', timeStamp: new Date() }))
+
+  // Error handler
+  server.setErrorHandler((error, _request, reply) => {
+    server.log.error(error)
+    reply.status(500).send({ error: 'Something went wrong' })
+  })
 
   const startServer = async ({ port }: StartServerProps) => {
     try {
