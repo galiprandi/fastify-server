@@ -12,7 +12,6 @@
     "dev": "node --run dev:build & node --watch dist/index.js",
     "dev:build": "npm run build -- --watch --preserveWatchOutput",
     "dev:start": "node --run -- --watch --enable-source-maps",
-    "postbuild": "cp  .env dist/.env",
     "start": "node dist/index.js --env-file .env",
     "build": "tsc"
   },
